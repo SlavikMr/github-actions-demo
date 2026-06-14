@@ -6,9 +6,6 @@
 
 name: CI Pipeline
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 # TRIGGERS: When should this workflow run?
 on:
   push:
@@ -26,11 +23,11 @@ jobs:
     steps:
       # Step 1: Get the code
       - name: Checkout Github code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Step 2: Set up Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
 
@@ -54,10 +51,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
 
@@ -69,7 +66,7 @@ jobs:
 
       # Upload build artifacts
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: build-files
           path: dist/
